@@ -1,0 +1,21 @@
+//breakpoints
+@media (min-width:64em) {
+    
+}
+// set to(container max widht) 1110px or 69.375rems. for now it is
+//640px,1024px,1400px i set this values to see other options on my small screen
+$breakpoints-up: ("medium":"40em","large":"64em","xlarge":"87.5em");
+$breakpoints-down: ("small":"39.9375em","medium":"63.9375em","large":"86.4375em");
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($breakpoints-up,$size))  
+    {
+        @content;
+    }  
+}
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoints-down,$size))  
+    {
+        @content;
+    }  
+}
